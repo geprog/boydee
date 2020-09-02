@@ -1,6 +1,6 @@
+import { ServiceTypes } from '@boydee/commons';
 import feathers from '@feathersjs/feathers';
 import socketio from '@feathersjs/socketio-client';
-import { ServiceTypes } from '@boydee/commons';
 import io from 'socket.io-client';
 
 import { localDebug } from './debug';
