@@ -7,7 +7,6 @@
     "max": 50
   },
   "database": {
-    "type": "DB_TYPE",
     "host": "DB_HOST",
     "port": "DB_PORT",
     "username": "DB_USERNAME",

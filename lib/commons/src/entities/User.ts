@@ -1,14 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-
-@Entity()
+import { prop } from '@typegoose/typegoose';
 export class User {
-  @PrimaryGeneratedColumn()
-  id: number | undefined;
-
-  @Column()
+  @prop()
   firstName: string;
 
-  @Column()
+  @prop()
   lastName: string;
 
   constructor(firstName: string, lastName: string) {
