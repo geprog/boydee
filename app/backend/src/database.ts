@@ -8,7 +8,6 @@ const debug = Debug('database');
 export default async (app: Application): Promise<void> => {
   const dbconfig = app.get('database');
 
-  // create a typeorm connection
   app.set('db-connected', false);
   const connectionString = `mongodb://${dbconfig.host}:${dbconfig.port}/${dbconfig.database}`;
   debug(`connection string: ${connectionString}`);

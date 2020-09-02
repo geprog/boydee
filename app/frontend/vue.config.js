@@ -34,9 +34,6 @@ module.exports = {
       },
       devtoolFallbackModuleFilenameTemplate: 'webpack:///[resource-path]?[hash]',
     },
-    // warning in /workspace/node_modules/typeorm/browser/driver/react-native/ReactNativeDriver.js
-    // Module not found: Error: Can't resolve 'react-native-sqlite-storage' in '/workspace/node_modules/typeorm/browser/driver/react-native'
-    // temporary fix for above warning (more info: https://github.com/typeorm/typeorm/issues/2158)
     externals: {
       'react-native-sqlite-storage': 'react-native-sqlite-storage',
     },
