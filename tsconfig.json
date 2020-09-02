@@ -1,0 +1,8 @@
+{
+  /*
+  This is a workdaround tsconfig file to support vetur features for .vue files,
+  because Vetur expects the vue project to be the root folder of the workspace.
+  The true main tsconfig file is the tsconfig.base.json.
+  */
+  "extends": "./app/frontend/tsconfig.json"
+}

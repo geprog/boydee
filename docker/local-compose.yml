@@ -1,0 +1,38 @@
+# This file is used for local development to test a production-like deployment
+
+version: '3'
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    environment:
+      NODE_ENV: production
+      DB_TYPE: postgres
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: db
+      DB_USERNAME: db
+      DB_PASSWORD: db
+    ports:
+      - 3000:3000
+
+  db:
+    image: postgres:9.6-alpine
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_USER: db
+      POSTGRES_PASSWORD: db
+    volumes:
+      - app-db:/var/lib/postgresql/data
+
+  db-ui:
+    image: adminer
+    depends_on:
+      - db
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+
+volumes:
+  app-db:

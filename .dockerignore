@@ -1,0 +1,5 @@
+*
+!app/backend/config/
+!app/backend/public/
+!app/backend/dist/
+!app/frontend/dist/

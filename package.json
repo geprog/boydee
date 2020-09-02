@@ -1,0 +1,74 @@
+{
+  "name": "boydee",
+  "version": "0.0.0",
+  "description": "Boilerplate with a Vue.JS app and an Express.JS backend on Node.js and Typescript",
+  "private": true,
+  "workspaces": [
+    "app/*",
+    "lib/*"
+  ],
+  "scripts": {
+    "start": "yarn build:libs && dotenv -- lerna run start --parallel",
+    "start:libs": "yarn build:libs && dotenv -- lerna run --ignore @boydee/{backend,frontend} start --parallel",
+    "start:frontend": "yarn build:libs && dotenv -- yarn workspace @boydee/frontend start",
+    "start:backend": "yarn build:libs && dotenv -- yarn workspace @boydee/backend start",
+    "lint": "yarn lint:prettier && yarn lint:eslint && lerna run lint",
+    "lint:fix": "yarn lint:prettier:fix && yarn lint:eslint:fix && lerna run lint:fix",
+    "lint:eslint": "eslint .eslintrc.js",
+    "lint:eslint:fix": "yarn lint:eslint --fix",
+    "lint:prettier": "prettier -c \"**/*.yml\" \"**/*.json\" \"**/*.css\" \"**/*.md\" \"!**/dist/**\"",
+    "lint:prettier:fix": "yarn lint:prettier --write",
+    "build": "lerna run build",
+    "build:libs": "lerna run --ignore @boydee/{backend,frontend} build",
+    "release": "lerna version",
+    "clean": "lerna run clean --parallel",
+    "test:unit": "lerna run test:unit",
+    "test:e2e": "lerna run test:e2e --parallel",
+    "docker:up": "docker-compose up -d --remove-orphans",
+    "docker:stop": "docker-compose stop",
+    "docker:exec": "docker-compose exec web",
+    "docker:start": "yarn docker:up && yarn docker:install && yarn docker:exec yarn start",
+    "docker:start:frontend": "yarn docker:up && yarn docker:install && yarn docker:exec yarn start:frontend",
+    "docker:start:backend": "yarn docker:up && yarn docker:install && yarn docker:exec yarn start:backend",
+    "docker:start:libs": "yarn docker:up && yarn docker:install && yarn docker:exec yarn start:libs",
+    "docker:bash": "yarn docker:exec bash",
+    "docker:install": "yarn docker:exec yarn",
+    "docker:build": "yarn docker:exec yarn build",
+    "docker:build:libs": "yarn docker:exec yarn build:libs"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.9.0",
+    "@types/node": "^13.5.0",
+    "@typescript-eslint/eslint-plugin": "^3.7.0",
+    "@typescript-eslint/parser": "^3.7.0",
+    "@vue/cli": "^4.1.2",
+    "dotenv-cli": "^3.1.0",
+    "eslint": "^7.5.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.16.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "lerna": "^3.20.2",
+    "lint-staged": "^10.2.13",
+    "prettier": "^2.0.5",
+    "tsconfig-paths": "^3.9.0",
+    "ts-jest": "^25.1.0",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "ttypescript": "^1.5.10",
+    "typescript": "^3.7.5",
+    "typescript-transform-paths": "^1.1.14"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,vue,yml,json,css,md}": "prettier --write"
+  }
+}

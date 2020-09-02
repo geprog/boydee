@@ -1,0 +1,18 @@
+{
+  "home": "Home",
+  "hello_world": {
+    "check_api": "check API",
+    "api_result": "api result"
+  },
+  "user": {
+    "firstname": "Firstname",
+    "lastname": "Lastname",
+    "create_user": "create user",
+    "create_user_result": "@:user.create_user result",
+    "list_users": "list users"
+  },
+  "language": "language",
+  "welcome_vue": "Welcome to Your Vue.js App",
+  "about": "About",
+  "about_text": "This is an about page"
+}

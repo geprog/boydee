@@ -1,0 +1,69 @@
+# This file is used for review branches and gets deployed by the CI
+
+version: '3'
+
+networks:
+  web-proxy:
+    external: true
+
+services:
+  app:
+    image: ${IMAGE}:${IMAGE_VERSION}
+    container_name: ${PROJECT_NAME}-app
+    networks:
+      - web-proxy
+      - default
+    restart: always
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.docker.network=web-proxy'
+      - 'traefik.http.routers.${PROJECT_NAME}-app.rule=Host(`${URL_APP}`)'
+      - 'traefik.http.routers.${PROJECT_NAME}-app.tls.certresolver=dnschallenge'
+      - 'traefik.http.routers.${PROJECT_NAME}-app.tls.domains[0].main=${BASE_DOMAIN}'
+      - 'traefik.http.routers.${PROJECT_NAME}-app.tls.domains[0].sans=*.${BASE_DOMAIN}'
+      - 'traefik.http.routers.${PROJECT_NAME}-app.tls.options=intermediate@file'
+      - 'traefik.http.services.${PROJECT_NAME}-app.loadbalancer.server.port=3000'
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_TYPE: postgres
+      DB_NAME: db
+      DB_USERNAME: db
+      DB_PASSWORD: db
+    depends_on:
+      - db
+
+  db:
+    image: postgres:9.6-alpine
+    container_name: ${PROJECT_NAME}-db
+    restart: always
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_USER: db
+      POSTGRES_PASSWORD: db
+    volumes:
+      - app-db:/var/lib/postgresql/data
+
+  db-ui:
+    image: adminer
+    container_name: ${PROJECT_NAME}-db-ui
+    networks:
+      - web-proxy
+      - default
+    restart: always
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.docker.network=web-proxy'
+      - 'traefik.http.routers.${PROJECT_NAME}-db-ui.rule=Host(`${URL_DB}`)'
+      - 'traefik.http.routers.${PROJECT_NAME}-db-ui.tls.certresolver=dnschallenge'
+      - 'traefik.http.routers.${PROJECT_NAME}-db-ui.tls.domains[0].main=db-${BASE_DOMAIN}'
+      - 'traefik.http.routers.${PROJECT_NAME}-db-ui.tls.domains[0].sans=*.db-${BASE_DOMAIN}'
+      - 'traefik.http.routers.${PROJECT_NAME}-db-ui.tls.options=intermediate@file'
+      - 'traefik.http.services.${PROJECT_NAME}-db-ui.loadbalancer.server.port=8080'
+    depends_on:
+      - db
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+
+volumes:
+  app-db:

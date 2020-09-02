@@ -1,0 +1,31 @@
+{
+  "gitlab.instanceUrl": "https://git.geprog.com",
+  "gitlab.enableExperimentalFeatures": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // copy next line to your user config to run prettier on save
+  // "editor.formatOnSave": true,
+  "eslint.codeActionsOnSave.mode": "problems",
+  // copy next lines to your user config to run eslint --fix on save
+  // "editor.codeActionsOnSave": {
+  //   "source.fixAll.eslint": true
+  // },
+  "eslint.enable": true,
+  "eslint.lintTask.enable": false, // when eslint is started globally it will not use the correct configs for each package, run `yarn lint` instead
+  "eslint.workingDirectories": ["./app/backend", "./app/frontend", "./lib/commons"],
+  "files.watcherExclude": {
+    "**/.git/**": true,
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/logs/**": true,
+    "**/.yarn": true // TODO: remove when yarn dist is removed
+  },
+  "search.exclude": {
+    "**/.git/**": true,
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/logs/**": true,
+    "**/.yarn": true // TODO: remove when yarn dist is removed
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "vetur.experimental.templateInterpolationService": true
+}

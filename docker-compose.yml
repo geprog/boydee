@@ -1,0 +1,52 @@
+# This file is used for local development (devcontainer)
+
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/workspace
+      # add local ssh config
+      - ~/.ssh:/root/.ssh-localhost:ro
+    environment:
+      DB_TYPE: postgres
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: $DB_NAME
+      DB_USERNAME: $DB_USERNAME
+      DB_PASSWORD: $DB_PASSWORD
+    ports:
+      # Node.js Backend
+      - '0.0.0.0:${BACKEND_PORT-3000}:3000'
+      # Vue Frontend
+      - '0.0.0.0:${FRONTEND_PORT-8080}:8080'
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+    working_dir: /workspace
+    depends_on:
+      - db
+    user: ${USER_ID:-0}
+
+  db:
+    image: postgres:9.6-alpine
+    environment:
+      POSTGRES_DB: $DB_NAME
+      POSTGRES_USER: $DB_USERNAME
+      POSTGRES_PASSWORD: $DB_PASSWORD
+    volumes:
+      - app-db:/var/lib/postgresql/data
+
+  db-ui:
+    image: adminer
+    ports:
+      - ${DB_UI_PORT-8081}:8080
+    depends_on:
+      - db
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+
+volumes:
+  app-db:

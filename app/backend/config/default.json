@@ -1,0 +1,17 @@
+{
+  "host": "localhost",
+  "port": "3000",
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "database": {
+    "type": "DB_TYPE",
+    "host": "DB_HOST",
+    "port": "DB_PORT",
+    "username": "DB_USERNAME",
+    "password": "DB_PASSWORD",
+    "database": "DB_NAME"
+  }
+}

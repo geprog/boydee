@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.js",
+    "src/**/*.vue",
+    "src/**/*.json",
+    ".storybook/**/*.js",
+    "tests/**/*.ts",
+    "tests/**/*.js",
+    ".eslintrc.js",
+    "*.js"
+  ]
+}

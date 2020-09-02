@@ -1,0 +1,9 @@
+node_modules
+*.log
+dist
+*.tsbuildinfo
+.env
+.cache
+.DS_Store
+*.sqlite
+.eslintcache
