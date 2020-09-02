@@ -1,12 +1,13 @@
+// import UserService from './UserService';
+import { User } from '@boydee/commons';
+import { getModelForClass } from '@typegoose/typegoose';
+import service from 'feathers-mongoose';
+
 import { Application } from '@/declarations';
 
-import UserService from './UserService';
-
 export default (app: Application): void => {
-  const options = {
-    paginate: app.get('paginate'),
-  };
+  const userModel = getModelForClass(User);
 
   // Initialize our service with any options it requires
-  app.use('user', new UserService(options));
+  app.use('user', service({ Model: userModel }));
 };

@@ -12,9 +12,8 @@ services:
       # add local ssh config
       - ~/.ssh:/root/.ssh-localhost:ro
     environment:
-      DB_TYPE: postgres
-      DB_HOST: db
-      DB_PORT: 5432
+      DB_HOST: mongo
+      DB_PORT: 27017
       DB_NAME: $DB_NAME
       DB_USERNAME: $DB_USERNAME
       DB_PASSWORD: $DB_PASSWORD
@@ -27,26 +26,26 @@ services:
     command: sleep infinity
     working_dir: /workspace
     depends_on:
-      - db
+      - mongo
     user: ${USER_ID:-0}
 
-  db:
-    image: postgres:9.6-alpine
+  mongo:
+    image: mongo
     environment:
-      POSTGRES_DB: $DB_NAME
-      POSTGRES_USER: $DB_USERNAME
-      POSTGRES_PASSWORD: $DB_PASSWORD
+      MONGO_INITDB_ROOT_USERNAME: $DB_USERNAME
+      MONGO_INITDB_ROOT_PASSWORD: $DB_PASSWORD
     volumes:
-      - app-db:/var/lib/postgresql/data
+      - app-db:/data/db
 
   db-ui:
-    image: adminer
-    ports:
-      - ${DB_UI_PORT-8081}:8080
+    image: mongo-express
     depends_on:
-      - db
+      - mongo
+    ports:
+      - ${DB_UI_PORT-8081}:8081
     environment:
-      ADMINER_DEFAULT_SERVER: db
+      ME_CONFIG_MONGODB_ADMINUSERNAME: $DB_USERNAME
+      ME_CONFIG_MONGODB_ADMINPASSWORD: $DB_PASSWORD
 
 volumes:
   app-db:

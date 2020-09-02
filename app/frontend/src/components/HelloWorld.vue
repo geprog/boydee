@@ -31,8 +31,8 @@
 </template>
 
 <script lang="ts">
-import { Paginated } from '@feathersjs/feathers';
 import { getMessage, User } from '@boydee/commons';
+import { Paginated } from '@feathersjs/feathers';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 import { feathers } from '@/lib';
@@ -58,8 +58,8 @@ export default class HelloWorld extends Vue {
 
   private async createUser(): Promise<void> {
     const user = new User(this.firstName, this.lastName);
-    this.firstName = '';
-    this.lastName = '';
+    this.firstName = 'ssg';
+    this.lastName = 'ishimura';
     this.userResult = await this.userService.create(user);
   }
 
