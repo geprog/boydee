@@ -5,6 +5,7 @@
       <router-link :to="{ name: 'home' }">
         <img src="../assets/logo.png" class="logo" />
       </router-link>
+       <v-icon>fa-sign-out-alt</v-icon>
     </div>
   </div>
 </template>

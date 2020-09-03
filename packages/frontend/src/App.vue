@@ -1,12 +1,12 @@
 <template>
-  <div id="app">
+  <v-app id="app">
     <AppBar />
     <div id="nav">
       <router-link to="/">{{ $t('home') }}</router-link> |
       <router-link to="/about">{{ $t('about') }}</router-link>
     </div>
     <router-view />
-  </div>
+  </v-app>
 </template>
 
 <script lang="ts">
