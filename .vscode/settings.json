@@ -11,7 +11,7 @@
   // },
   "eslint.enable": true,
   "eslint.lintTask.enable": false, // when eslint is started globally it will not use the correct configs for each package, run `yarn lint` instead
-  "eslint.workingDirectories": ["./app/backend", "./app/frontend", "./lib/commons"],
+  "eslint.workingDirectories": ["./packages/backend", "./packages/frontend", "./packages/commons"],
   "files.watcherExclude": {
     "**/.git/**": true,
     "**/node_modules/**": true,

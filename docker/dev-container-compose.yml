@@ -1,0 +1,53 @@
+# This file is used for local development (devcontainer)
+
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev-container
+    env_file:
+      - ../.env
+    volumes:
+      - ../:/workspace
+      # add local ssh config
+      - ~/.ssh:/root/.ssh-localhost:ro
+    environment:
+      DB_HOST: mongo
+      DB_PORT: 27017
+      DB_NAME: $DB_NAME
+      DB_USERNAME: $DB_USERNAME
+      DB_PASSWORD: $DB_PASSWORD
+    ports:
+      # Node.js Backend
+      - '0.0.0.0:${BACKEND_PORT-3000}:3000'
+      # Vue Frontend
+      - '0.0.0.0:${FRONTEND_PORT-8080}:8080'
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+    working_dir: /workspace
+    depends_on:
+      - mongo
+    user: ${USER_ID:-0}
+
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: $DB_USERNAME
+      MONGO_INITDB_ROOT_PASSWORD: $DB_PASSWORD
+    volumes:
+      - app-db:/data/db
+
+  db-ui:
+    image: mongo-express
+    depends_on:
+      - mongo
+    ports:
+      - ${DB_UI_PORT-8081}:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: $DB_USERNAME
+      ME_CONFIG_MONGODB_ADMINPASSWORD: $DB_PASSWORD
+
+volumes:
+  app-db:

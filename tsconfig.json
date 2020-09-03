@@ -4,5 +4,5 @@
   because Vetur expects the vue project to be the root folder of the workspace.
   The true main tsconfig file is the tsconfig.base.json.
   */
-  "extends": "./app/frontend/tsconfig.json"
+  "extends": "./packages/frontend/tsconfig.json"
 }
