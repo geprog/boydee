@@ -1,12 +1,23 @@
 <template>
   <div id="app">
     <div id="nav">
+      <AppBar />
       <router-link to="/">{{ $t('home') }}</router-link> |
       <router-link to="/about">{{ $t('about') }}</router-link>
     </div>
     <router-view />
   </div>
 </template>
+
+<script>
+import AppBar from '@/components/AppBar.vue';
+@Component({
+  components: { AppBar },
+})
+export default {
+
+}
+</script>
 
 <style>
 #app {
