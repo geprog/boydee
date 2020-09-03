@@ -1,7 +1,7 @@
 // A hook that logs service method before, after and error
 import { HookContext } from '@feathersjs/feathers';
 
-import logger from '@/logger';
+import logger from '@/lib/logger';
 // TODO: add sentry logging
 // import sentry from '../libs/sentry';
 
