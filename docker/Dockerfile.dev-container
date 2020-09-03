@@ -28,19 +28,6 @@ RUN apt-get update \
         bash-completion \
         shellcheck \
     #
-    # add dependencies for cypress (https://docs.cypress.io/guides/guides/continuous-integration.html#Dependencies)
-    && apt-get -y install \
-        libgtk2.0-0 \
-        libgtk-3-0 \
-        libnotify-dev \
-        libgconf-2-4 \
-        libnss3 \
-        libxss1 \
-        libasound2 \
-        libxtst6 \
-        xauth \
-        xvfb \
-    #
     # cleanup
     && rm -rf /var/lib/apt/lists/* \
     && apt-get autoremove -y \
