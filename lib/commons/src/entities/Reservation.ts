@@ -15,6 +15,7 @@ export class Reservation {
 
   @prop()
   end: Date;
+
   constructor(desk: Ref<Desk>, start: Date, end: Date) {
     this.desk = desk;
     this.start = start;
