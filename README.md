@@ -10,13 +10,18 @@ JavaScript but helps development will be used. \
 The main purpose is to explain a possible development environment for
 [Node JS](https://nodejs.org/en/) development and get started quickly.
 
+## Concerning the docker-compose commands.
+
+From now on the `docker-compose` commands are not directly but via `yarn docker-compose` commands. e.g
+`yarn docker-compose down` instead of `docker-compose down`.
+
 ## Backend
 
-Documentation for a sample Express Setup can be found in `/app/backend/README.md`
+Documentation for a sample Express Setup can be found in `/packages/backend/README.md`
 
 ## Frontend
 
-Documentation for a sample Vue JS Setup can be found in `/app/frontend/README.md`
+Documentation for a sample Vue JS Setup can be found in `/packages/frontend/README.md`
 
 ## VS Code Dev Environment
 

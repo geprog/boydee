@@ -1,5 +1,5 @@
 *
-!app/backend/config/
-!app/backend/public/
-!app/backend/dist/
-!app/frontend/dist/
+!packages/backend/config/
+!packages/backend/public/
+!packages/backend/dist/
+!packages/frontend/dist/
