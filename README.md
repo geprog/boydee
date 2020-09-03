@@ -12,11 +12,11 @@ The main purpose is to explain a possible development environment for
 
 ## Backend
 
-Documentation for a sample Express Setup can be found in `/app/backend/README.md`
+Documentation for a sample Express Setup can be found in `/packages/backend/README.md`
 
 ## Frontend
 
-Documentation for a sample Vue JS Setup can be found in `/app/frontend/README.md`
+Documentation for a sample Vue JS Setup can be found in `/packages/frontend/README.md`
 
 ## VS Code Dev Environment
 

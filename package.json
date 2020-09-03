@@ -4,12 +4,11 @@
   "description": "Boilerplate with a Vue.JS app and an Express.JS backend on Node.js and Typescript",
   "private": true,
   "workspaces": [
-    "app/*",
-    "lib/*"
+    "packages/*"
   ],
   "scripts": {
     "start": "yarn build:libs && dotenv -- lerna run start --parallel",
-    "start:libs": "yarn build:libs && dotenv -- lerna run --ignore @boydee/{backend,frontend} start --parallel",
+    "start:libs": "yarn build:libs && dotenv -- yarn workspace @boydee/common start",
     "start:frontend": "yarn build:libs && dotenv -- yarn workspace @boydee/frontend start",
     "start:backend": "yarn build:libs && dotenv -- yarn workspace @boydee/backend start",
     "lint": "yarn lint:prettier && yarn lint:eslint && lerna run lint",

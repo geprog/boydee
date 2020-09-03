@@ -12,5 +12,5 @@
     }
   },
   "include": ["src/**/*.ts", "tests/**/*.ts"],
-  "references": [{ "path": "../../lib/commons" }]
+  "references": [{ "path": "../commons" }]
 }
