@@ -12,5 +12,18 @@
     "username": "DB_USERNAME",
     "password": "DB_PASSWORD",
     "database": "DB_NAME"
+  },
+  "oauth":
+  {
+    "authentication": {
+      "oauth": {
+        "google": {
+          "key": "<App ID>",
+          "secret": "<App Secret>",
+          "scope": ["openid", "email", "profile"],
+          "nonce": true
+        }
+      }
+    }
   }
 }
