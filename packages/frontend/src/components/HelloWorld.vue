@@ -1,10 +1,6 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <button @click="checkApi">{{ $t('hello_world.check_api') }}</button>
-    <h2>{{ $t('hello_world.api_result') }}:</h2>
-    <pre>{{ apiResult }}</pre>
-    <br />
 
     <hr />
     <form @submit.prevent="createUser">
@@ -41,8 +37,8 @@ import { feathers } from '@/lib';
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
 
-  private firstName = '';
-  private lastName = '';
+  private firstName = 'Hans';
+  private lastName = 'Hotel';
   private apiResult: string | null = null;
   private userResult: User | User[] | null = null;
   private users: User | User[] | Paginated<User> | null = null;
@@ -51,8 +47,6 @@ export default class HelloWorld extends Vue {
 
   private async createUser(): Promise<void> {
     const user = new User(this.firstName, this.lastName);
-    this.firstName = 'ssg';
-    this.lastName = 'ishimura';
     this.userResult = await this.userService.create(user);
   }
 
