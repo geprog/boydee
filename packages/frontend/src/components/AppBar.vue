@@ -36,7 +36,7 @@ export default class AppBar extends Vue {}
   max-width: 410px;
   margin: 0 auto;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 .logo {
   height: 44px;
