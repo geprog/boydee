@@ -10,6 +10,11 @@ JavaScript but helps development will be used. \
 The main purpose is to explain a possible development environment for
 [Node JS](https://nodejs.org/en/) development and get started quickly.
 
+## Concerning the docker-compose commands.
+
+From now on the `docker-compose` commands are not directly but via `yarn docker-compose` commands. e.g
+`yarn docker-compose down` instead of `docker-compose down`.
+
 ## Backend
 
 Documentation for a sample Express Setup can be found in `/app/backend/README.md`
