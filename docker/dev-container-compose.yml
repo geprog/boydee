@@ -6,9 +6,11 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev-container
+    env_file:
+      - ../.env
     volumes:
-      - ./:/workspace
+      - ../:/workspace
       # add local ssh config
       - ~/.ssh:/root/.ssh-localhost:ro
     environment:

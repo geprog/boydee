@@ -6,11 +6,11 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 # copy backend code
-COPY app/backend/dist/index.js ./
-COPY app/backend/config/ ./config/
+COPY packages/backend/dist/index.js ./
+COPY packages/backend/config/ ./config/
 
 # copy frontend code (and backend public files)
-COPY app/backend/public app/frontend/dist ./public/
+COPY packages/backend/public packages/frontend/dist ./public/
 
 RUN chown -R node:node /app
 USER node

@@ -1,10 +1,6 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <button @click="checkApi">{{ $t('hello_world.check_api') }}</button>
-    <h2>{{ $t('hello_world.api_result') }}:</h2>
-    <pre>{{ apiResult }}</pre>
-    <br />
 
     <hr />
     <form @submit.prevent="createUser">
@@ -31,7 +27,7 @@
 </template>
 
 <script lang="ts">
-import { getMessage, User } from '@boydee/commons';
+import { User } from '@boydee/commons';
 import { Paginated } from '@feathersjs/feathers';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
@@ -41,25 +37,16 @@ import { feathers } from '@/lib';
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
 
-  private firstName = '';
-  private lastName = '';
+  private firstName = 'Hans';
+  private lastName = 'Hotel';
   private apiResult: string | null = null;
   private userResult: User | User[] | null = null;
   private users: User | User[] | Paginated<User> | null = null;
-  private helloService = feathers.service('hello');
   private userService = feathers.service('user');
   private langs = ['en', 'de'];
 
-  private async checkApi(): Promise<void> {
-    this.apiResult = null;
-    const hello = await this.helloService.get(0);
-    this.apiResult = getMessage(hello);
-  }
-
   private async createUser(): Promise<void> {
     const user = new User(this.firstName, this.lastName);
-    this.firstName = 'ssg';
-    this.lastName = 'ishimura';
     this.userResult = await this.userService.create(user);
   }
 

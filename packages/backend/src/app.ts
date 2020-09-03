@@ -7,11 +7,12 @@ import helmet from 'helmet';
 import path from 'path';
 import favicon from 'serve-favicon';
 
+import * as database from '@/lib/database';
+import logger from '@/lib/logger';
+
 import appHooks from './app.hooks';
 import channels from './channels';
-import openDatabase from './database';
 import { Application } from './declarations';
-import logger from './logger';
 import middleware from './middleware';
 import services from './services';
 
@@ -23,7 +24,7 @@ app.configure(configuration());
 // create a database connection
 // TODO: async configuration shall be possible with version 5 (see https://github.com/feathersjs/feathers/issues/1965)
 // eslint-disable-next-line @typescript-eslint/no-misused-promises
-app.configure(openDatabase);
+app.configure(database.init);
 
 // Enable security, CORS, compression, favicon and body parsing
 app.use(helmet());
