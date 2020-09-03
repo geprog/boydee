@@ -1,10 +1,9 @@
 <template>
   <div class="appBar white">
     <div class="appBarInner">
-      <v-menu tile offset-y content-class="menu-content"> </v-menu>
-
+      <v-icon>fa-bars</v-icon>
       <router-link :to="{ name: 'home' }">
-        <Icon pack="logo" name="elog" class="logo" color="gray_first" />
+        <img src="../assets/logo.png" class="logo" />
       </router-link>
     </div>
   </div>
@@ -33,12 +32,10 @@ export default class AppBar extends Vue {}
 .appBarInner {
   display: flex;
   width: 100%;
-  max-width: var(--max-width);
+  max-width: 410px;
   margin: 0 auto;
   align-items: center;
-}
-.menu-item-list {
-  padding: 0;
+  justify-content: center;
 }
 .logo {
   height: 44px;
@@ -47,5 +44,6 @@ export default class AppBar extends Vue {}
   display: flex;
   align-items: center;
   display: flex;
+  justify-content: center;
 }
 </style>
