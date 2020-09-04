@@ -5,20 +5,22 @@
       <router-link to="/">{{ $t('home') }}</router-link> |
       <router-link to="/about">{{ $t('about') }}</router-link>
     </div>
+    <BookDesk />
     <router-view />
   </v-app>
 </template>
 
 <script lang="ts">
 // @ is an alias to /src
+import '@/css/common.css';
+
 import { Component, Vue } from 'vue-property-decorator';
 
 import AppBar from '@/components/AppBar.vue';
+import BookDesk from '@/components/BookDesk.vue';
 
 @Component({
-  components: {
-    AppBar,
-  },
+  components: { AppBar, BookDesk },
 })
 export default class App extends Vue {}
 </script>
@@ -31,6 +33,8 @@ export default class App extends Vue {}
   text-align: center;
   color: #2c3e50;
   background: var(--v-grey_fifth-base);
+  max-width: 410px;
+  margin: 0 auto;
 }
 
 #nav {

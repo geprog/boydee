@@ -1,1 +1,4 @@
 /** Add global css configurations here e.g. fonts */
+body {
+  background: var(--v-grey_fifth-base);
+}

@@ -4,6 +4,7 @@
     "check_api": "check API",
     "api_result": "api result"
   },
+  "modify": "Modify",
   "user": {
     "firstname": "Firstname",
     "lastname": "Lastname",
@@ -14,5 +15,8 @@
   "language": "language",
   "welcome_vue": "Welcome to Your Vue.js App",
   "about": "About",
-  "about_text": "This is an about page"
+  "about_text": "This is an about page",
+  "booking_desk": "Booking for any desk",
+  "show_free_desk": "Show free desk for",
+  "hours": "hours"
 }

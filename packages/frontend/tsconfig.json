@@ -11,6 +11,6 @@
       "$/*": ["tests/unit/*"]
     }
   },
-  "include": ["src/**/*.ts", "tests/**/*.ts"],
+  "include": ["src/**/*.ts", "src/**/*.vue", "tests/**/*.ts", "tests/**/*.vue"],
   "references": [{ "path": "../commons" }]
 }
