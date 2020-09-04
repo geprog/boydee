@@ -15,14 +15,8 @@ export default class AuthCallback extends Vue {
 
   async mounted(): Promise<void> {
     try {
-      // eslint-disable-next-line no-console
-      console.log('here');
       await this.$store.dispatch('auth/authenticate');
     } catch (err) {
-      // eslint-disable-next-line no-console
-      console.log('error');
-      // eslint-disable-next-line no-console
-      console.log(err);
       this.error = err.className === 'not-autenticated' ? 'Incorrect values' : 'Error on login';
       return;
     }

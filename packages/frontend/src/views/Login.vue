@@ -1,7 +1,8 @@
 <template>
   <div class="home">
-    <v-btn :href="loginUrl">{{ $t('login') }}</v-btn>
-    <pre>{{ user }}</pre>
+    <div><span>{{$t("login")}}</span></div>
+    <v-btn color="primary" class="mt-3" :href="loginUrl"><v-icon >fab fa-github-square</v-icon></v-btn>
+<pre>{{ user }}</pre>
   </div>
 </template>
 
