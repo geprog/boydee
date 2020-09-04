@@ -28,7 +28,7 @@ module.exports = {
     'vue/no-useless-mustaches': 'error',
     'vue/no-useless-concat': 'error',
     'vue/no-bare-strings-in-template': [
-      'error',
+      'warn',
       {
         allowlist: [
           // be careful when updating eslint-plugin-vue this key changes in v7.0.0-alpha.7
