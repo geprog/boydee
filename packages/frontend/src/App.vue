@@ -2,6 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">{{ $t('home') }}</router-link> |
+      <router-link to="/login">{{ $t('login') }}</router-link> |
       <router-link to="/about">{{ $t('about') }}</router-link>
     </div>
     <router-view />

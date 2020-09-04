@@ -13,16 +13,25 @@
     "password": "DB_PASSWORD",
     "database": "DB_NAME"
   },
-  "oauth":
-  {
-    "authentication": {
-      "oauth": {
-        "google": {
-          "key": "<App ID>",
-          "secret": "<App Secret>",
-          "scope": ["openid", "email", "profile"],
-          "nonce": true
-        }
+  "authentication": {
+    "entity": "user",
+    "service": "user",
+    "secret": "AUTH_SECRET",
+    "authStrategies": [ "jwt", "github" ],
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "api",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "oauth": {
+      "redirect": "http://localhost:8080",
+      "github": {
+        "key": "OAUTH_KEY",
+        "secret": "OAUTH_SECRET",
+        "scope": ["openid", "profile", "email"]
       }
     }
   }

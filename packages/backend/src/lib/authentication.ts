@@ -12,19 +12,23 @@ declare module '@/declarations' {
 
 export class GithubStrategy extends OAuthStrategy {
   async getEntityData(profile: OAuthProfile, existing: unknown, params: Params) {
-    const baseData = await super.getEntityData(profile, existing, params);
+    let baseData = null;
+    try {
+      baseData = await super.getEntityData(profile, existing, params);
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error);
+    }
 
     return {
       ...baseData,
-      // You can also set the display name to profile.name
-      name: profile.login,
+
       // The user email address (if available)
-      email: profile.email,
     };
   }
 }
 
-export default function (app: Application) {
+export default function (app: Application): void {
   const authentication = new AuthenticationService(app);
 
   authentication.register('jwt', new JWTStrategy());

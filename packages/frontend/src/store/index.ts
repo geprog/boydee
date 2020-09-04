@@ -3,8 +3,6 @@ import Vuex from 'vuex';
 
 import { FeathersVuex } from '@/lib/feathers';
 
-import auth from './store.auth';
-
 Vue.use(Vuex);
 Vue.use(FeathersVuex);
 
@@ -20,8 +18,6 @@ const requireModule = require.context(
 const servicePlugins = requireModule.keys().map((modulePath) => requireModule(modulePath).default);
 
 export default new Vuex.Store<RootState>({
-  state: {},
-  mutations: {},
-  actions: {},
-  plugins: [...servicePlugins, auth],
+  strict: true,
+  plugins: [...servicePlugins],
 });
