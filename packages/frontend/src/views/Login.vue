@@ -1,24 +1,40 @@
 <template>
-  <div class="home">
-    <div><span>{{$t("login")}}</span></div>
-    <v-btn color="primary" class="mt-3" :href="loginUrl"><v-icon >fab fa-github-square</v-icon></v-btn>
-<pre>{{ user }}</pre>
+  <div class="login">
+    <v-btn color="primary" class="login-btn" :href="loginUrl"
+      ><span>{{ $t('login') }}</span
+      ><v-icon>fab fa-github-square</v-icon></v-btn
+    >
   </div>
 </template>
 
 <script lang="ts">
-// @ is an alias to /src
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class Login extends Vue {
-  get user() {
-    console.log(this.$store.state.auth.user);
-    return this.$store.state.auth.user;
-  }
-
   get loginUrl() {
     return 'http://localhost:3000/oauth/github?redirect=/auth/callback';
   }
+
+  async mounted(): Promise<void> {
+    if (this.$store.getters['auth/isAuthenticated']) {
+      this.$router.replace({ name: 'home' });
+    }
+  }
 }
 </script>
+
+<style scoped>
+.login {
+  display: flex;
+  margin-top: 52px;
+}
+
+.login-btn {
+  margin: auto;
+}
+
+.login-btn span {
+  margin-right: 1rem;
+}
+</style>
