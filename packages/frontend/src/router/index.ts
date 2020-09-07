@@ -42,12 +42,6 @@ router.beforeEach(async (to, from, next) => {
     return;
   }
 
-  // already authenticated
-  if (store.getters['auth/isAuthenticated']) {
-    next();
-    return;
-  }
-
   try {
     await store.dispatch('auth/authenticate');
   } catch (error) {
@@ -55,13 +49,6 @@ router.beforeEach(async (to, from, next) => {
       next();
       return;
     }
-
-    if (error.message.includes('No accessToken found in storage')) {
-      next({ name: 'auth-login' });
-      return;
-    }
-
-    return;
   }
 
   // don't need auth
@@ -69,6 +56,15 @@ router.beforeEach(async (to, from, next) => {
     next();
     return;
   }
+
+  // already authenticated
+  if (store.getters['auth/isAuthenticated']) {
+    next();
+    return;
+  }
+
+  next({ name: 'auth-login' });
+  return;
 });
 
 export default router;
