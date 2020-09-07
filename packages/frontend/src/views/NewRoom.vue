@@ -39,7 +39,6 @@ export default class NewRoom extends Vue {
     fr.onload = (e) => {
       if (e && e.target && e.target.result) {
         this.svg = e.target.result.toString();
-        // TODO: interpret svg file
       }
     };
 
@@ -51,7 +50,14 @@ export default class NewRoom extends Vue {
       throw new Error('No SVG found');
     }
 
-    await this.$store.dispatch('room/create', room);
+    // TODO: extract desks from svg and save them with their data-desk ids
+
+    const { Room } = this.$FeathersVuex.api;
+
+    const room = new Room();
+    room.svg = this.svg;
+    await room.save();
+    this.$router.replace({ name: 'home' });
   }
 }
 </script>
