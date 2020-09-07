@@ -1,9 +1,10 @@
+import { authenticate } from './hooks/authenticate';
 import { error, log } from './hooks/index';
 
 // Application hooks that run for every service
 export default {
   before: {
-    all: [],
+    all: [authenticate],
     find: [],
     get: [],
     create: [],
