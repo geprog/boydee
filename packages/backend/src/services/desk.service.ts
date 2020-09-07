@@ -7,6 +7,10 @@ import { Application } from '@/declarations';
 export default (app: Application): void => {
   const deskModel = getModelForClass(Desk);
 
-  // Initialize our service with any options it requires
-  app.use('desk', service({ Model: deskModel }));
+  const deskService = service({
+    Model: deskModel,
+    paginate: app.get('paginate'),
+  });
+
+  app.use('desk', deskService);
 };
