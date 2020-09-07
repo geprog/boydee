@@ -1,10 +1,13 @@
 <template>
   <div class="home">
-    <HelloWorld v-if="roomAvailable" :msg="$t('welcome_vue')" />
-    <div v-else class="no-room-available">
-      <p class="no-rooms-text">You currently have no rooms!</p>
-      <v-btn color="primary" @click="$router.push({ name: 'new-room' })">Create a new room</v-btn>
-    </div>
+    <b-loading is-full-page v-model="loading" can-cancel />
+    <template v-if="!loading">
+      <HelloWorld v-if="hasRooms" :msg="$t('welcome_vue')" />
+      <div v-else class="no-room-available">
+        <p class="no-rooms-text">You currently have no rooms!</p>
+        <v-btn color="primary" @click="$router.push({ name: 'new-room' })">Create a new room</v-btn>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -19,8 +22,15 @@ import HelloWorld from '@/components/HelloWorld.vue';
   },
 })
 export default class Home extends Vue {
-  get roomAvailable(): boolean {
-    return false;
+  private hasRooms = false;
+  private loading = true;
+
+  mounted(): Promise<void> {
+    this.loading = true;
+    // TODO: load proper data
+    // const rooms = await this.$store.dispatch('room/find', { query: {} });
+    // this.hasRooms = rooms.total >= 1;
+    this.loading = false;
   }
 }
 </script>
