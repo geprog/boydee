@@ -4,6 +4,7 @@
     "check_api": "check API",
     "api_result": "api result"
   },
+  "login": "Login with Github",
   "user": {
     "firstname": "Firstname",
     "lastname": "Lastname",

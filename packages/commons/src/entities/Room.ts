@@ -1,4 +1,5 @@
 import { prop } from '@typegoose/typegoose';
+
 export class Room {
   @prop()
   svg: string;
