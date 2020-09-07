@@ -17,7 +17,7 @@
     "entity": "user",
     "service": "user",
     "secret": "AUTH_SECRET",
-    "authStrategies": [ "jwt", "github" ],
+    "authStrategies": ["jwt", "github"],
     "jwtOptions": {
       "header": {
         "typ": "access"
@@ -29,8 +29,8 @@
     "oauth": {
       "redirect": "http://localhost:8080",
       "github": {
-        "key": "OAUTH_KEY",
-        "secret": "OAUTH_SECRET",
+        "key": "GITHUB_CLIENT_ID",
+        "secret": "GITHUB_CLIENT_SECRET",
         "scope": ["openid", "profile", "email"]
       }
     }
