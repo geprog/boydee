@@ -2,14 +2,14 @@ import { Service } from '@feathersjs/feathers';
 
 import feathersClient, { BaseModel, makeServicePlugin } from '@/lib/feathers';
 
-class User extends BaseModel {
-  static modelName = 'User';
+class Desk extends BaseModel {
+  static modelName = 'Desk';
 }
 
-const servicePath = 'user';
+const servicePath = 'desk';
 
 const servicePlugin = makeServicePlugin({
-  Model: User,
+  Model: Desk,
   service: feathersClient.service(servicePath) as Service<unknown>,
   servicePath,
 });
