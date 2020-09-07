@@ -10,13 +10,16 @@
       <span class="mr-3">{{ $t('hours') }}</span>
       <v-btn color="primary" class="p-0"><v-icon>fa-search</v-icon></v-btn>
     </div>
+    <Calender />
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
+import Calender from '@/components/Calender.vue';
+
 @Component({
-  components: {},
+  components: { Calender },
 })
 export default class BookDesk extends Vue {
   get items(): number[] {
