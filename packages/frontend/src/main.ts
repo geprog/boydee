@@ -2,6 +2,7 @@ import '@/registerServiceWorker';
 import '@/lib';
 import '@/plugins/buefy';
 
+import VueCompositionApi from '@vue/composition-api';
 import Vue, { VNode } from 'vue';
 
 import App from '@/App.vue';
@@ -11,6 +12,8 @@ import router from '@/router';
 import store from '@/store';
 
 Vue.config.productionTip = false;
+
+Vue.use(VueCompositionApi);
 
 new Vue({
   router,

@@ -12,21 +12,29 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { defineComponent, ref, computed } from '@vue/composition-api';
+import { useFind } from 'feathers-vuex';
 
-@Component
-export default class Home extends Vue {
-  private hasRooms = false;
-  private loading = true;
+export default defineComponent({
+  name: 'Home',
 
-  mounted(): Promise<void> {
-    this.loading = true;
-    // TODO: load proper data
-    // const rooms = await this.$store.dispatch('room/find', { query: {} });
-    // this.hasRooms = rooms.total >= 1;
-    this.loading = false;
-  }
-}
+  setup(props, context) {
+    const { Room } = context.root.$FeathersVuex.api;
+
+    const roomsParams = computed(() => ({
+      query: {},
+    }));
+
+    const { paginationData, items: rooms, isPending: loading } = useFind({ model: Room, params: roomsParams });
+
+    const hasRooms = computed(() => rooms.value.length >= 1);
+
+    return {
+      loading,
+      hasRooms,
+    };
+  },
+});
 </script>
 
 <style scoped>
