@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import '@fortawesome/fontawesome-free/css/all.css';
 
 import Vuetify from 'vuetify/lib';
