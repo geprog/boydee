@@ -1,6 +1,6 @@
 import { AuthenticationService, JWTStrategy } from '@feathersjs/authentication';
 import { expressOauth, OAuthProfile, OAuthStrategy } from '@feathersjs/authentication-oauth';
-import { ServiceAddons } from '@feathersjs/feathers';
+import { Params, ServiceAddons } from '@feathersjs/feathers';
 
 import { Application } from '@/declarations';
 
@@ -11,17 +11,12 @@ declare module '@/declarations' {
 }
 
 class GithubStrategy extends OAuthStrategy {
-  // eslint-disable-next-line @typescript-eslint/require-await
-  async getEntityQuery(profile: OAuthProfile) {
-    return {
-      oauthId: `${this.name}-${profile.sub || profile.id}`,
-    };
-  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async getEntityData(profile: OAuthProfile, existing: unknown, params: Params) {
+    const baseData = await super.getEntityData(profile, existing, params);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/require-await
-  async getEntityData(profile: OAuthProfile) {
     return {
-      oauthId: `${this.name}-${profile.sub || profile.id}`,
+      ...baseData,
       email: profile.email,
       name: profile.name,
     };

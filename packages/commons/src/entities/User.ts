@@ -2,7 +2,7 @@ import { prop } from '@typegoose/typegoose';
 
 export class User {
   @prop()
-  oauthId: string;
+  githubId: string;
 
   @prop()
   name: string;
@@ -10,8 +10,8 @@ export class User {
   @prop()
   email: string;
 
-  constructor(oauthId: string, name: string, email: string) {
-    this.oauthId = oauthId;
+  constructor(githubId: string, name: string, email: string) {
+    this.githubId = githubId;
     this.name = name;
     this.email = email;
   }
