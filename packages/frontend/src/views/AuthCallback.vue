@@ -1,7 +1,6 @@
 <template>
-  <div class="home">
+  <div class="auth-callback">
     <p>{{ error }}</p>
-    <p>{{ user }}</p>
   </div>
 </template>
 
@@ -21,10 +20,6 @@ export default class AuthCallback extends Vue {
     }
 
     this.$router.push('/');
-  }
-
-  get user() {
-    return this.$store.state.auth.user;
   }
 }
 </script>
