@@ -2,7 +2,7 @@
   <div class="home">
     <b-loading is-full-page v-model="loading" can-cancel />
     <template v-if="!loading">
-      <HelloWorld v-if="hasRooms" :msg="$t('welcome_vue')" />
+      <div v-if="hasRooms">Hey</div>
       <div v-else class="no-room-available">
         <p class="no-rooms-text">You currently have no rooms!</p>
         <v-btn color="primary" @click="$router.push({ name: 'new-room' })">Create a new room</v-btn>
@@ -14,13 +14,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import HelloWorld from '@/components/HelloWorld.vue';
-
-@Component({
-  components: {
-    HelloWorld,
-  },
-})
+@Component
 export default class Home extends Vue {
   private hasRooms = false;
   private loading = true;

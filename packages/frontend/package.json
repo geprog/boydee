@@ -11,10 +11,13 @@
   },
   "dependencies": {
     "@boydee/commons": "0.0.0",
-    "@feathersjs/feathers": "^4.5.7",
-    "@feathersjs/socketio-client": "^4.5.7",
-    "buefy": "0.9.3",
+    "@feathersjs/feathers": "^4.5.8",
+    "@feathersjs/socketio-client": "^4.5.8",
+    "@feathersjs/authentication-client": "^4.5.8",
+    "feathers-hooks-common": "^5.0.3",
+    "@vue/composition-api": "^0.6.1",
     "debug": "^4.1.1",
+    "buefy": "0.9.3",
     "register-service-worker": "^1.6.2",
     "socket.io-client": "^2.3.0",
     "svg-parser": "^2.0.4",
@@ -24,7 +27,8 @@
     "vue-property-decorator": "^8.3.0",
     "vue-router": "^3.1.5",
     "vuetify": "^2.2.29",
-    "vuex": "^3.1.2"
+    "vuex": "^3.1.2",
+    "feathers-vuex": "^3.12.2"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",

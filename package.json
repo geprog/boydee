@@ -23,7 +23,7 @@
     "clean": "lerna run clean --parallel",
     "test:unit": "lerna run test:unit",
     "test:e2e": "lerna run test:e2e --parallel",
-    "docker-compose": "dotenv -- docker-compose -f docker/dev-compose.yml",
+    "docker-compose": "dotenv -- docker-compose -p boydee -f docker/dev-compose.yml",
     "docker:up": "yarn docker-compose up -d --remove-orphans",
     "docker:stop": "yarn docker-compose stop",
     "docker:exec": "yarn docker-compose exec web",
