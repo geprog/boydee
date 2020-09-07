@@ -3,7 +3,7 @@ name: Node
 on:
   push:
     branches:
-      - '*'
+      - 'master'
   pull_request:
 
 env:
