@@ -30,8 +30,7 @@
       "redirect": "http://localhost:8080",
       "github": {
         "key": "GITHUB_CLIENT_ID",
-        "secret": "GITHUB_CLIENT_SECRET",
-        "scope": ["openid", "profile", "email"]
+        "secret": "GITHUB_CLIENT_SECRET"
       }
     }
   }
