@@ -1,11 +1,9 @@
 <template>
-  <v-app id="app">
-    <AppBar />
-    <div id="nav">
-      <router-link to="/">{{ $t('home') }}</router-link> |
-      <router-link to="/about">{{ $t('about') }}</router-link>
+  <v-app>
+    <div class="app gray_fifth">
+      <AppBar />
+      <router-view class="app-content" />
     </div>
-    <router-view />
   </v-app>
 </template>
 
@@ -24,8 +22,9 @@ export default class App extends Vue {}
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+.app {
+  display: flex;
+  height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -33,16 +32,9 @@ export default class App extends Vue {}
   background: var(--v-grey_fifth-base);
 }
 
-#nav {
-  padding: 60px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.app-content {
+  display: flex;
+  margin-top: 54px;
+  width: 100%;
 }
 </style>

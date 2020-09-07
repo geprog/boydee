@@ -1,12 +1,14 @@
 <template>
   <div class="home">
-    <img src="../assets/logo.png" />
-    <HelloWorld :msg="$t('welcome_vue')" />
+    <HelloWorld v-if="roomAvailable" :msg="$t('welcome_vue')" />
+    <div v-else class="no-room-available">
+      <p class="no-rooms-text">You currently have no rooms!</p>
+      <v-btn color="primary" @click="$router.push({ name: 'new-room' })">Create a new room</v-btn>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-// @ is an alias to /src
 import { Component, Vue } from 'vue-property-decorator';
 
 import HelloWorld from '@/components/HelloWorld.vue';
@@ -16,5 +18,22 @@ import HelloWorld from '@/components/HelloWorld.vue';
     HelloWorld,
   },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  get roomAvailable(): boolean {
+    return false;
+  }
+}
 </script>
+
+<style scoped>
+.no-room-available {
+  display: flex;
+  flex-flow: column;
+  margin: auto;
+}
+
+.no-rooms-text {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+</style>

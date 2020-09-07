@@ -1,6 +1,6 @@
 <template>
-  <div class="appBar white">
-    <div class="appBarInner">
+  <div class="app-bar white">
+    <div class="app-bar-inner">
       <v-icon>fa-bars</v-icon>
       <router-link :to="{ name: 'home' }">
         <img src="../assets/logo.png" class="logo" />
@@ -20,7 +20,7 @@ export default class AppBar extends Vue {}
 </script>
 
 <style scoped>
-.appBar {
+.app-bar {
   position: fixed;
   left: 0;
   top: 0;
@@ -30,14 +30,16 @@ export default class AppBar extends Vue {}
   display: flex;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
 }
-.appBarInner {
+
+.app-bar-inner {
   display: flex;
   width: 100%;
-  max-width: 410px;
+  /* max-width: 410px; */
   margin: 0 auto;
   align-items: center;
   justify-content: space-around;
 }
+
 .logo {
   height: 44px;
   cursor: pointer;
