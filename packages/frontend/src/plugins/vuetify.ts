@@ -1,8 +1,11 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+
 import '@fortawesome/fontawesome-free/css/all.css';
 
-import Vuetify from 'vuetify/lib';
+import Vue from 'vue';
+import Vuetify from 'vuetify';
 
-export default new Vuetify({
+const vuetify = new Vuetify({
   theme: {
     themes: {
       light: {
@@ -25,3 +28,7 @@ export default new Vuetify({
     iconfont: 'fa',
   },
 });
+
+Vue.use(Vuetify);
+
+export default vuetify;
