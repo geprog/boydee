@@ -6,7 +6,7 @@
     </div>
     <div class="search_option mt-5">
       <span class="mr-3">{{ $t('show_free_desk') }}</span
-      ><v-select :items="items" solo class="select-item mr-3" :value="items[0]" />
+      ><v-select :items="items" solo class="select-item mr-3" :value="items[0]" hide-details />
       <span class="mr-3">{{ $t('hours') }}</span>
       <v-btn color="primary" class="p-0"><v-icon>fa-search</v-icon></v-btn>
     </div>
@@ -38,5 +38,6 @@ export default class BookDesk extends Vue {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
 }
 </style>
