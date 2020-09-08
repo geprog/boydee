@@ -18,9 +18,9 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: ${{ env.YARN_CACHE_FOLDER }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-clear1-${{ hashFiles('**/yarn.lock') }}-
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-yarn-clear1
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
