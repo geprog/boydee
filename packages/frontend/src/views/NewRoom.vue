@@ -3,7 +3,10 @@
     <div v-if="svg" class="room-preview">
       <p class="room-preview-title">This will be your new room:</p>
       <div v-html="svg" class="room-preview-svg" />
-      <v-btn color="primary" @click="saveRoom">Save new room</v-btn>
+      <div class="room-preview-buttons">
+        <v-btn class="btn-reset-room" color="error" @click="resetRoom"><v-icon>fa-times</v-icon></v-btn>
+        <v-btn class="btn-save-room" color="primary" @click="saveRoom"><v-icon>fa-save</v-icon></v-btn>
+      </div>
     </div>
     <b-field v-else>
       <b-upload v-model="file" drag-drop accept="image/svg+xml,.svg">
@@ -12,7 +15,7 @@
             <p>
               <v-icon>fa-upload</v-icon>
             </p>
-            <p>Drop your room SVG image here or click to upload one</p>
+            <p>Drop your room image (.svg) here or click to upload one</p>
           </div>
         </section>
       </b-upload>
@@ -21,6 +24,7 @@
 </template>
 
 <script lang="ts">
+import cheerio from 'cheerio';
 import { Component, Vue, Watch } from 'vue-property-decorator';
 
 @Component
@@ -45,18 +49,31 @@ export default class NewRoom extends Vue {
     fr.readAsText(file);
   }
 
+  resetRoom(): void {
+    this.svg = null;
+    this.file = null;
+  }
+
   async saveRoom(): Promise<void> {
     if (!this.svg) {
       throw new Error('No SVG found');
     }
 
-    // TODO: extract desks from svg and save them with their data-desk ids
-
-    const { Room } = this.$FeathersVuex.api;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { Room, Desk } = this.$FeathersVuex.api;
+    const $ = cheerio.load(this.svg);
 
     const room = new Room();
     room.svg = this.svg;
-    await room.save();
+    await room.create();
+
+    $('[data-desk]').each((index, element) => {
+      const desk = new Desk();
+      desk._id = $(element).data('desk');
+      desk.room = room._id;
+      void desk.create();
+    });
+
     this.$router.replace({ name: 'home' });
   }
 }
@@ -70,11 +87,25 @@ export default class NewRoom extends Vue {
   align-items: center;
 }
 
+.room-preview {
+  display: flex;
+  flex-flow: column;
+}
+
 .room-preview-title {
   font-size: 1.5rem;
 }
 
 .room-preview-svg {
   margin: 2rem 0;
+}
+
+.room-preview-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-reset-room {
+  margin-right: 1rem;
 }
 </style>
