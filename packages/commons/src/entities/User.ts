@@ -1,13 +1,18 @@
 import { prop } from '@typegoose/typegoose';
+
 export class User {
   @prop()
-  firstName: string;
+  githubId: string;
 
   @prop()
-  lastName: string;
+  name: string;
 
-  constructor(firstName: string, lastName: string) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+  @prop()
+  email: string;
+
+  constructor(githubId: string, name: string, email: string) {
+    this.githubId = githubId;
+    this.name = name;
+    this.email = email;
   }
 }

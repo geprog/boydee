@@ -1,17 +1,12 @@
 <template>
   <v-app id="app">
     <AppBar />
-    <div id="nav">
-      <router-link to="/">{{ $t('home') }}</router-link> |
-      <router-link to="/about">{{ $t('about') }}</router-link>
-    </div>
     <BookDesk />
     <router-view />
   </v-app>
 </template>
 
 <script lang="ts">
-// @ is an alias to /src
 import '@/css/common.css';
 
 import { Component, Vue } from 'vue-property-decorator';
