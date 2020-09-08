@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <div class="app gray_fifth">
-      <AppBar />
+      <AppBar v-if="isAuthenticated" />
       <router-view class="app-content" />
     </div>
   </v-app>
@@ -17,7 +17,11 @@ import AppBar from '@/components/AppBar.vue';
     AppBar,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  get isAuthenticated(): boolean {
+    return this.$store.getters['auth/isAuthenticated'];
+  }
+}
 </script>
 
 <style>

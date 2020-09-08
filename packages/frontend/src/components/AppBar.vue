@@ -1,11 +1,11 @@
 <template>
   <div class="app-bar white">
     <div class="app-bar-inner">
-      <v-icon>fa-bars</v-icon>
+      <v-btn text><v-icon>fa-bars</v-icon></v-btn>
       <router-link :to="{ name: 'home' }">
         <img src="../assets/logo.png" class="logo" />
       </router-link>
-      <v-btn v-if="isAuthenticated" text @click="doLogout"><v-icon>fa-sign-out-alt</v-icon></v-btn>
+      <v-btn text @click="doLogout"><v-icon>fa-sign-out-alt</v-icon></v-btn>
     </div>
   </div>
 </template>
@@ -13,14 +13,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-@Component({
-  components: {},
-})
+@Component
 export default class AppBar extends Vue {
-  get isAuthenticated(): boolean {
-    return this.$store.getters['auth/isAuthenticated'];
-  }
-
   async doLogout(): Promise<void> {
     await this.$store.dispatch('auth/logout');
     this.$router.replace({ name: 'auth-login' });
