@@ -5,7 +5,7 @@
       <router-link :to="{ name: 'home' }">
         <img src="../assets/logo.png" class="logo" />
       </router-link>
-      <v-icon>fa-sign-out-alt</v-icon>
+      <v-btn v-if="isAuthenticated" text @click="doLogout"><v-icon>fa-sign-out-alt</v-icon></v-btn>
     </div>
   </div>
 </template>
@@ -16,7 +16,16 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component({
   components: {},
 })
-export default class AppBar extends Vue {}
+export default class AppBar extends Vue {
+  get isAuthenticated(): boolean {
+    return this.$store.getters['auth/isAuthenticated'];
+  }
+
+  async doLogout(): Promise<void> {
+    await this.$store.dispatch('auth/logout');
+    this.$router.replace({ name: 'auth-login' });
+  }
+}
 </script>
 
 <style scoped>
@@ -30,6 +39,7 @@ export default class AppBar extends Vue {}
   display: flex;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
 }
+
 .appBarInner {
   display: flex;
   width: 100%;
@@ -38,6 +48,7 @@ export default class AppBar extends Vue {}
   align-items: center;
   justify-content: space-around;
 }
+
 .logo {
   height: 44px;
   cursor: pointer;

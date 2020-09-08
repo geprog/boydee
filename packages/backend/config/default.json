@@ -12,5 +12,26 @@
     "username": "DB_USERNAME",
     "password": "DB_PASSWORD",
     "database": "DB_NAME"
+  },
+  "authentication": {
+    "entity": "user",
+    "service": "user",
+    "secret": "AUTH_SECRET",
+    "authStrategies": ["jwt", "github"],
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "api",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "oauth": {
+      "redirect": "http://localhost:8080",
+      "github": {
+        "key": "GITHUB_CLIENT_ID",
+        "secret": "GITHUB_CLIENT_SECRET"
+      }
+    }
   }
 }
