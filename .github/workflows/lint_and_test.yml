@@ -1,4 +1,4 @@
-name: Node
+name: Lint and Test
 
 on:
   push:
