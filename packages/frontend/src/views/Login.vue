@@ -12,13 +12,13 @@ import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class Login extends Vue {
-  get loginUrl() {
+  get loginUrl(): string {
     return 'http://localhost:3000/oauth/github?redirect=/auth/callback';
   }
 
-  async mounted(): Promise<void> {
+  mounted(): void {
     if (this.$store.getters['auth/isAuthenticated']) {
-      this.$router.replace({ name: 'home' });
+      void this.$router.replace({ name: 'home' });
     }
   }
 }
