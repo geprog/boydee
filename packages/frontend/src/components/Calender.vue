@@ -82,7 +82,7 @@
 export default {
   data: () => ({
     focus: '',
-    type: 'month',
+    type: '4day',
     typeToLabel: {
       month: 'Month',
       week: 'Week',
@@ -93,8 +93,8 @@ export default {
     selectedElement: null,
     selectedOpen: false,
     events: [],
-    colors: ['blue', 'indigo', 'deep-purple', 'cyan', 'green', 'orange', 'grey darken-1'],
-    names: ['Meeting', 'Holiday', 'PTO', 'Travel', 'Event', 'Birthday', 'Conference', 'party'],
+    colors: ['red'],
+    names: ['Meeting'],
   }),
   mounted() {
     this.$refs.calendar.checkChange();
@@ -106,9 +106,6 @@ export default {
     },
     getEventColor(event) {
       return event.color;
-    },
-    setToday() {
-      this.focus = '';
     },
     prev() {
       this.$refs.calendar.prev();
