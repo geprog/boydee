@@ -5,6 +5,7 @@
     "api_result": "api result"
   },
   "modify": "Modify",
+  "login": "Login with Github",
   "user": {
     "firstname": "Firstname",
     "lastname": "Lastname",

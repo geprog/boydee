@@ -10,7 +10,7 @@ const NODE_ENV = process.env.NODE_ENV || 'production';
 let server: Server;
 
 async function start() {
-  logger.info('Application (%s V:%s) starting ...', NODE_ENV, pkg.version);
+  logger.info('Application (%s v%s) starting ...', NODE_ENV, pkg.version);
 
   // block, because we need our database to work properly
   await database.connect(app);
@@ -24,7 +24,7 @@ async function start() {
 
 async function stop(): Promise<void> {
   if (!server) {
-    process.exit(0);
+    return;
   }
 
   return new Promise((resolve) => {
@@ -35,9 +35,7 @@ async function stop(): Promise<void> {
 }
 
 async function shutdown(): Promise<void> {
-  if (!server) {
-    process.exit(0);
-  }
+  logger.info('Stopping application ...');
 
   // wait 3 seconds to kill server
   setTimeout(() => {
@@ -46,17 +44,21 @@ async function shutdown(): Promise<void> {
   }, 3 * 1000);
 
   await stop();
-  logger.info('Backend stopped');
+  logger.info('Application stopped');
   process.exit(0);
 }
+
+function exitHook() {
+  void shutdown();
+}
+
+process.once('SIGINT', exitHook);
+process.once('SIGTERM', exitHook);
 
 if (NODE_ENV === 'production') {
   process.on('uncaughtException', (error) => logger.error('Uncaught exception', error));
   process.on('uncaughtExceptionMonitor', (error) => logger.error('Uncaught exception monitor', error));
   process.on('unhandledRejection', (reason, p) => logger.error('Unhandled Rejection at: Promise ', p, reason));
 }
-
-process.on('SIGTERM', () => void shutdown);
-process.on('SIGINT', () => shutdown);
 
 void start();

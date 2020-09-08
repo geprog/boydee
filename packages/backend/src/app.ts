@@ -7,6 +7,7 @@ import helmet from 'helmet';
 import path from 'path';
 import favicon from 'serve-favicon';
 
+import authentication from '@/lib/authentication';
 import * as database from '@/lib/database';
 import logger from '@/lib/logger';
 
@@ -45,6 +46,8 @@ app.configure(middleware);
 app.configure(services);
 // Set up event channels (see channels.js)
 app.configure(channels);
+
+app.configure(authentication);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(app.get('public'), 'index.html'));
