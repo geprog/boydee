@@ -28,7 +28,7 @@ export default class App extends Vue {}
   text-align: center;
   color: #2c3e50;
   background: var(--v-grey_fifth-base);
-  max-width: 410px;
+  /* max-width: 410px; */
   margin: 0 auto;
 }
 
