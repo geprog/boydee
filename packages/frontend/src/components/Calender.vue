@@ -42,6 +42,7 @@
           ref="calendar"
           v-model="focus"
           color="primary"
+          event-overlap-mode="column"
           :events="events"
           :event-color="getEventColor"
           :type="type"
@@ -62,7 +63,7 @@
                 <v-icon>fa-heart</v-icon>
               </v-btn>
               <v-btn icon>
-                <v-icon>fa-dots-vertical</v-icon>
+                <v-icon>fa-ellipsis-v</v-icon>
               </v-btn>
             </v-toolbar>
             <v-card-text>
