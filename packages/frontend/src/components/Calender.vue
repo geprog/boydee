@@ -64,13 +64,14 @@
           </template>
           &nbsp;
         </v-calendar>
-        <!--         {{ lastEvent }} -->
       </v-sheet>
     </v-col>
   </v-row>
 </template>
 
 <script>
+import Vuetify from 'vuetify/lib';
+
 export default {
   data: () => ({
     focus: '',
@@ -298,7 +299,7 @@ export default {
       this.lastEvent = 'cancelDrag';
     },
     roundTime(time, down = true) {
-      const roundDownTime = 15 * 60 * 1000; // 15 minutes
+      const roundDownTime = 30 * 60 * 1000; // 30 minutes
 
       return down ? time - (time % roundDownTime) : time + (roundDownTime - (time % roundDownTime));
     },
