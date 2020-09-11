@@ -8,6 +8,10 @@ import { Application } from '@/declarations';
 export default (app: Application): void => {
   const userModel = getModelForClass(User);
 
-  // Initialize our service with any options it requires
-  app.use('user', service({ Model: userModel }));
+  const userService = service({
+    Model: userModel,
+    paginate: app.get('paginate'),
+  });
+
+  app.use('user', userService);
 };

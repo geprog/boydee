@@ -16,9 +16,9 @@ export default class Login extends Vue {
     return 'http://localhost:3000/oauth/github?redirect=/auth/callback';
   }
 
-  async mounted(): Promise<void> {
+  mounted(): void {
     if (this.$store.getters['auth/isAuthenticated']) {
-      this.$router.replace({ name: 'home' });
+      void this.$router.replace({ name: 'home' });
     }
   }
 }

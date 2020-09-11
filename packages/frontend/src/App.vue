@@ -1,7 +1,9 @@
 <template>
-  <v-app id="app">
-    <AppBar />
-    <router-view />
+  <v-app>
+    <div class="app gray_fifth">
+      <AppBar v-if="isAuthenticated" />
+      <router-view class="app-content" />
+    </div>
   </v-app>
 </template>
 
@@ -15,12 +17,17 @@ import AppBar from '@/components/AppBar.vue';
     AppBar,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  get isAuthenticated(): boolean {
+    return this.$store.getters['auth/isAuthenticated'];
+  }
+}
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+.app {
+  display: flex;
+  height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -28,16 +35,9 @@ export default class App extends Vue {}
   background: var(--v-grey_fifth-base);
 }
 
-#nav {
-  padding: 60px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.app-content {
+  display: flex;
+  margin-top: 54px;
+  width: 100%;
 }
 </style>
