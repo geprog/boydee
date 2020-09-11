@@ -1,11 +1,11 @@
 <template>
-  <div class="appBar white">
-    <div class="appBarInner">
-      <v-icon>fa-bars</v-icon>
+  <div class="app-bar white">
+    <div class="app-bar-inner">
+      <v-btn text><v-icon>fa-bars</v-icon></v-btn>
       <router-link :to="{ name: 'home' }">
         <img src="../assets/logo.png" class="logo" />
       </router-link>
-      <v-btn v-if="isAuthenticated" text @click="doLogout"><v-icon>fa-sign-out-alt</v-icon></v-btn>
+      <v-btn text @click="doLogout"><v-icon>fa-sign-out-alt</v-icon></v-btn>
     </div>
   </div>
 </template>
@@ -13,14 +13,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-@Component({
-  components: {},
-})
+@Component
 export default class AppBar extends Vue {
-  get isAuthenticated(): boolean {
-    return this.$store.getters['auth/isAuthenticated'];
-  }
-
   async doLogout(): Promise<void> {
     await this.$store.dispatch('auth/logout');
     this.$router.replace({ name: 'auth-login' });
@@ -29,7 +23,7 @@ export default class AppBar extends Vue {
 </script>
 
 <style scoped>
-.appBar {
+.app-bar {
   position: fixed;
   left: 0;
   top: 0;
@@ -40,10 +34,10 @@ export default class AppBar extends Vue {
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
 }
 
-.appBarInner {
+.app-bar-inner {
   display: flex;
   width: 100%;
-  max-width: 410px;
+  /* max-width: 410px; */
   margin: 0 auto;
   align-items: center;
   justify-content: space-around;

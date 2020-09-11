@@ -1,8 +1,9 @@
 <template>
-  <v-app id="app">
-    <AppBar />
-    <BookDesk />
-    <router-view />
+  <v-app>
+    <div class="app gray_fifth">
+      <AppBar v-if="isAuthenticated" />
+      <router-view class="app-content" />
+    </div>
   </v-app>
 </template>
 
@@ -17,12 +18,17 @@ import BookDesk from '@/components/BookDesk.vue';
 @Component({
   components: { AppBar, BookDesk },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  get isAuthenticated(): boolean {
+    return this.$store.getters['auth/isAuthenticated'];
+  }
+}
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+.app {
+  display: flex;
+  height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -32,16 +38,9 @@ export default class App extends Vue {}
   margin: 0 auto;
 }
 
-#nav {
-  padding: 60px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.app-content {
+  display: flex;
+  margin-top: 54px;
+  width: 100%;
 }
 </style>
