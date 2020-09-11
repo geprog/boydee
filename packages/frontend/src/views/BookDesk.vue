@@ -46,5 +46,7 @@ export default class BookDesk extends Vue {
 .bookdesk {
   display: flex;
   flex-direction: column;
+  max-width: 1050px;
+  margin: 74px auto;
 }
 </style>

@@ -37,7 +37,6 @@ export default class AppBar extends Vue {
 .app-bar-inner {
   display: flex;
   width: 100%;
-  /* max-width: 410px; */
   margin: 0 auto;
   align-items: center;
   justify-content: space-around;
