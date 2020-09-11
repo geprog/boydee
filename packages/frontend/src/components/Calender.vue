@@ -1,7 +1,7 @@
 <template>
   <v-row class="fill-height">
     <v-col>
-      <v-sheet height="64">
+      <v-sheet height="60">
         <v-toolbar flat color="white" class="calender-header">
           <v-btn small class="mr-3" @click="$refs.calendar.prev()">
             <v-icon small>fa-chevron-left</v-icon>
@@ -41,6 +41,7 @@
           :weekdays="weekday"
           :type="type"
           :events="events"
+          color="primary"
           :event-overlap-mode="mode"
           :event-overlap-threshold="60"
           :event-color="getEventColor"
@@ -94,7 +95,7 @@ export default {
     value: '',
     events: [],
     colors: ['red'],
-    names: ['Meeting'],
+    names: [''],
 
     dragEvent: null,
     dragStart: null,
@@ -136,9 +137,6 @@ export default {
     const minutes = cal.times.now.hour * 60 + cal.times.now.minute;
     const firstTime = Math.max(0, minutes - (minutes % 30) - 30);
     cal.scrollToTime(firstTime);
-
-    // every minute update the current time bar
-    setInterval(() => cal.updateTimes(), 60 * 1000);
   },
   methods: {
     viewDay({ date }) {
@@ -184,7 +182,7 @@ export default {
     },
     getEventHTML(event, timed) {
       const cal = this.$refs.calendar;
-      let name = event.name;
+      let name = '';
       if (event.start.hasTime) {
         if (timed) {
           const showStart = event.start.hour < 12 && event.end.hour >= 12;
