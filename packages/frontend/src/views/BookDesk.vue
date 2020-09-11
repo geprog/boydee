@@ -11,15 +11,17 @@
       <v-btn color="primary" class="p-0"><v-icon>fa-search</v-icon></v-btn>
     </div>
     <Calender />
+    <ActionBar />
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
 import Calender from '@/components/Calender.vue';
+import ActionBar from '@/components/ActionBar.vue';
 
 @Component({
-  components: { Calender },
+  components: { Calender, ActionBar },
 })
 export default class BookDesk extends Vue {
   get items(): number[] {
