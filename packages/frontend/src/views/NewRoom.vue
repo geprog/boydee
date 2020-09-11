@@ -1,8 +1,8 @@
 <template>
   <div class="new-room">
     <div v-if="svg" class="room-preview">
-      <p class="room-preview-title">This will be your new room:</p>
-      <div v-html="svg" class="room-preview-svg" />
+      <p class="room-preview-title">{{ $t('new_room.upload_room_image') }}</p>
+      <div class="room-preview-svg" v-html="svg" />
       <div class="room-preview-buttons">
         <v-btn class="btn-reset-room" color="error" @click="resetRoom"><v-icon>fa-times</v-icon></v-btn>
         <v-btn class="btn-save-room" color="primary" @click="saveRoom"><v-icon>fa-save</v-icon></v-btn>
@@ -15,7 +15,7 @@
             <p>
               <v-icon>fa-upload</v-icon>
             </p>
-            <p>Drop your room image (.svg) here or click to upload one</p>
+            <p>{{ $t('new_room.your_new_room') }}</p>
           </div>
         </section>
       </b-upload>
@@ -59,7 +59,7 @@ export default class NewRoom extends Vue {
       throw new Error('No SVG found');
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     const { Room, Desk } = this.$FeathersVuex.api;
     const $ = cheerio.load(this.svg);
 

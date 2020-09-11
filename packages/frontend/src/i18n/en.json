@@ -15,5 +15,11 @@
   "language": "language",
   "welcome_vue": "Welcome to Your Vue.js App",
   "about": "About",
-  "about_text": "This is an about page"
+  "about_text": "This is an about page",
+  "new_room": {
+    "upload_room_image": "Drop your room image (.svg) here or click to upload one",
+    "your_new_room": "This will be your new room:",
+    "no_rooms": "You currently have no rooms!",
+    "create_new_room": "Create a new room"
+  }
 }
