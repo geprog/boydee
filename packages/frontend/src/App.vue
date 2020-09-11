@@ -13,10 +13,9 @@ import '@/css/common.css';
 import { Component, Vue } from 'vue-property-decorator';
 
 import AppBar from '@/components/AppBar.vue';
-import BookDesk from '@/components/BookDesk.vue';
 
 @Component({
-  components: { AppBar, BookDesk },
+  components: { AppBar },
 })
 export default class App extends Vue {
   get isAuthenticated(): boolean {
@@ -35,12 +34,11 @@ export default class App extends Vue {
   color: #2c3e50;
   background: var(--v-grey_fifth-base);
   /* max-width: 410px; */
-  margin: 0 auto;
 }
 
 .app-content {
   display: flex;
-  margin-top: 54px;
+  margin-top: 74px;
   width: 100%;
 }
 </style>

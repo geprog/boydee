@@ -19,6 +19,8 @@
   "about_text": "This is an about page",
   "booking_desk": "Booking for any desk",
   "show_free_desk": "Show free desk for",
+  "book_any_desk": "Book any desk",
+  "your_bookings": "Your bookings",
   "hours": "hours",
   "new_room": {
     "upload_room_image": "Drop your room image (.svg) here or click to upload one",
