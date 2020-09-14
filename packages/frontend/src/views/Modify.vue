@@ -1,21 +1,25 @@
 <template>
   <div class="modify">
     <div>
-      <span class="mr-2">{{ $t('choose_a_desk_or') }}</span>
-      <v-btn color="primary" :to="{ path: '/book-desk/modify' }">{{ $t('any_desk') }}</v-btn>
-      <v-btn color="primary" class="p-0" @click="$router.go(-1)"><v-icon>fa-times</v-icon></v-btn>
+      <div>
+        <span class="mr-2">{{ $t('choose_a_desk_or') }}</span>
+        <v-btn color="primary" @click="click">{{ $t('any_desk') }}</v-btn>
+      </div>
+
+      <v-btn color="primary" class="p-0 mt-5" @click="$router.go(-1)"><v-icon>fa-times</v-icon></v-btn>
     </div>
   </div>
 </template>
-
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
 import ActionBar from '@/components/ActionBar.vue';
 
 @Component
-export default class BookDesk extends Vue {
-  name: 'BookDesk';
+export default class Modify extends Vue {
+  click() {
+    this.$router.push({ path: '/book-desk' });
+  }
 }
 </script>
 
