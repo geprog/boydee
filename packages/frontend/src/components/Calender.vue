@@ -316,4 +316,7 @@ export default {
   display: flex;
   justify-content: center;
 }
+.v-calendar .v-event-timed-container {
+  margin: 0 !important;
+}
 </style>
