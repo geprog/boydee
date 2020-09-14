@@ -27,5 +27,7 @@
     "your_new_room": "This will be your new room:",
     "no_rooms": "You currently have no rooms!",
     "create_new_room": "Create a new room"
-  }
+  },
+  "choose_a_desk_or": "Choose a desk or",
+  "any_desk": "any desk"
 }
