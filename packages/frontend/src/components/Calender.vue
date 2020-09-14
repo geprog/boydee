@@ -169,16 +169,7 @@ export default {
       this.events = events;
     },
     getEventColor(event) {
-      const rgb = parseInt(event.color.substring(1), 16);
-      const r = (rgb >> 16) & 0xff;
-      const g = (rgb >> 8) & 0xff;
-      const b = (rgb >> 0) & 0xff;
-
-      return event === this.dragEvent
-        ? `rgba(${r}, ${g}, ${b}, 0.5)`
-        : event === this.createEvent
-        ? `rgba(${r}, ${g}, ${b}, 0.5)`
-        : event.color;
+      return event === this.dragEvent ? `green` : event === this.createEvent ? `green` : event.color;
     },
     getEventHTML(event, timed) {
       const cal = this.$refs.calendar;
