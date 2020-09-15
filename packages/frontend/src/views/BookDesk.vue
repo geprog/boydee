@@ -10,20 +10,36 @@
       <span class="mr-3">{{ $t('hours') }}</span>
       <v-btn color="primary" class="p-0"><v-icon>fa-search</v-icon></v-btn>
     </div>
+    <div>
+      <v-expansion-panels v-model="panel" tile :disabled="disabled" flat>
+        <v-expansion-panel class="text-left">
+          <v-expansion-panel-header disable-icon-rotate>Details</v-expansion-panel-header>
+          <v-expansion-panel-content left> - 1 table static(75 x 155 x 55) </v-expansion-panel-content>
+          <v-expansion-panel-content> - 1 chair , adjustable </v-expansion-panel-content>
+          <v-expansion-panel-content> - 2 monitors (24 inch, 24 inch) </v-expansion-panel-content>
+          <v-expansion-panel-content> - 1 docking station USB C </v-expansion-panel-content>
+          <v-expansion-panel-content> - 1 keyboard (German) </v-expansion-panel-content>
+          <v-expansion-panel-content> - 1 mouse </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-expansion-panels>
+    </div>
+
     <Calender />
     <ActionBar />
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
-import Calender from '@/components/Calender.vue';
 import ActionBar from '@/components/ActionBar.vue';
+import Calender from '@/components/Calender.vue';
 
 @Component({
   components: { Calender, ActionBar },
 })
 export default class BookDesk extends Vue {
+  @Prop({ type: [], default: [0, 1] }) panel?: [];
+
   get items(): number[] {
     var values = [];
     for (var i = 1; i < 25; i++) {
