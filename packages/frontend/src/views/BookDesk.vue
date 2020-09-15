@@ -11,7 +11,7 @@
       <v-btn color="primary" class="p-0"><v-icon>fa-search</v-icon></v-btn>
     </div>
     <div>
-      <v-expansion-panels v-model="panel" tile :disabled="disabled" flat>
+      <v-expansion-panels v-model="panel" tile flat>
         <v-expansion-panel class="text-left">
           <v-expansion-panel-header disable-icon-rotate>Details</v-expansion-panel-header>
           <v-expansion-panel-content left> - 1 table static(75 x 155 x 55) </v-expansion-panel-content>
@@ -29,7 +29,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 
 import ActionBar from '@/components/ActionBar.vue';
 import Calender from '@/components/Calender.vue';
@@ -38,8 +38,6 @@ import Calender from '@/components/Calender.vue';
   components: { Calender, ActionBar },
 })
 export default class BookDesk extends Vue {
-  @Prop({ type: [], default: [0, 1] }) panel?: [];
-
   get items(): number[] {
     var values = [];
     for (var i = 1; i < 25; i++) {
