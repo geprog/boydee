@@ -2,13 +2,13 @@
   <div class="bookdesk">
     <div>
       <span class="mr-3">{{ $t('booking_desk') }}</span>
-      <v-btn color="primary" :to="{ path: '/book-desk/modify' }">{{ $t('modify') }}</v-btn>
+      <v-btn small color="primary" :to="{ path: '/book-desk/modify' }">{{ $t('modify') }}</v-btn>
     </div>
     <div class="search_option mt-5">
       <span class="mr-3">{{ $t('show_free_desk') }}</span
       ><v-select :items="items" solo class="select-item mr-3" :value="items[0]" hide-details />
       <span class="mr-3">{{ $t('hours') }}</span>
-      <v-btn color="primary" class="p-0"><v-icon>fa-search</v-icon></v-btn>
+      <v-btn small color="primary" class="p-0"><v-icon small>fa-search</v-icon></v-btn>
     </div>
     <div>
       <v-expansion-panels v-model="panel" tile flat>

@@ -8,7 +8,7 @@
           </v-btn>
           <v-menu bottom right>
             <template #activator="{ on, attrs }">
-              <v-btn outlined color="grey darken-2" v-bind="attrs" v-on="on">
+              <v-btn small outlined color="grey darken-2" v-bind="attrs" v-on="on">
                 <span>{{ typeToLabel[type] }}</span>
                 <v-icon right x-small>fa-chevron-down</v-icon>
               </v-btn>

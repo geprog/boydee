@@ -1,7 +1,7 @@
 <template>
   <div class="action-bar">
-    <v-btn color="primary" class="p-0" @click="$router.go(-1)"><v-icon>fa-times</v-icon></v-btn>
-    <v-btn :disabled="true" color="primary" class="p-0"><v-icon>fa-arrow-right</v-icon></v-btn>
+    <v-btn color="primary" small class="p-0" @click="$router.go(-1)"><v-icon small>fa-times</v-icon></v-btn>
+    <v-btn :disabled="true" small color="primary" class="p-0"><v-icon small>fa-arrow-right</v-icon></v-btn>
   </div>
 </template>
 

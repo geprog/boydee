@@ -3,10 +3,10 @@
     <div>
       <div>
         <span class="mr-2">{{ $t('choose_a_desk_or') }}</span>
-        <v-btn color="primary" @click="click">{{ $t('any_desk') }}</v-btn>
+        <v-btn small color="primary" @click="click">{{ $t('any_desk') }}</v-btn>
       </div>
 
-      <v-btn color="primary" class="p-0 mt-5" @click="$router.go(-1)"><v-icon>fa-times</v-icon></v-btn>
+      <v-btn small color="primary" class="p-0 mt-5" @click="$router.go(-1)"><v-icon small>fa-times</v-icon></v-btn>
     </div>
   </div>
 </template>
