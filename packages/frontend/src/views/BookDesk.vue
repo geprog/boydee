@@ -10,7 +10,7 @@
       <span class="mr-3">{{ $t('hours') }}</span>
       <v-btn small color="primary" class="p-0"><v-icon small>fa-search</v-icon></v-btn>
     </div>
-    <div>
+    <div v-if="false">
       <v-expansion-panels v-model="panel" tile flat>
         <v-expansion-panel class="text-left">
           <v-expansion-panel-header disable-icon-rotate>Details</v-expansion-panel-header>
