@@ -10,16 +10,13 @@
       <span class="mr-3">{{ $t('hours') }}</span>
       <v-btn small color="primary" class="p-0"><v-icon small>fa-search</v-icon></v-btn>
     </div>
-    <div v-if="false">
+    <div>
       <v-expansion-panels v-model="panel" tile flat>
         <v-expansion-panel class="text-left">
           <v-expansion-panel-header disable-icon-rotate>Details</v-expansion-panel-header>
-          <v-expansion-panel-content left> - 1 table static(75 x 155 x 55) </v-expansion-panel-content>
-          <v-expansion-panel-content> - 1 chair , adjustable </v-expansion-panel-content>
-          <v-expansion-panel-content> - 2 monitors (24 inch, 24 inch) </v-expansion-panel-content>
-          <v-expansion-panel-content> - 1 docking station USB C </v-expansion-panel-content>
-          <v-expansion-panel-content> - 1 keyboard (German) </v-expansion-panel-content>
-          <v-expansion-panel-content> - 1 mouse </v-expansion-panel-content>
+          <v-expansion-panel-content v-for="(item, index) in details" :key="index" left
+            >{{ item }}
+          </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
     </div>
@@ -45,6 +42,14 @@ export default class BookDesk extends Vue {
     }
     return values;
   }
+  details = {
+    1: '- 1 table static(75 x 155 x 55)',
+    2: '- 1 chair , adjustable',
+    3: '- 2 monitors (24 inch, 24 inch)',
+    4: '- 1 docking station USB C',
+    5: '- 1 keyboard (German)',
+    6: '- 1 mouse ',
+  };
 }
 </script>
 <style scoped>
