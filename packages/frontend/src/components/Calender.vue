@@ -125,11 +125,6 @@ export default {
   },
   mounted() {
     const cal = this.$refs.calendar;
-
-    window.Vuetify = Vuetify;
-    window.app = this;
-    window.cal = cal;
-
     this.isMounted = true;
 
     // scroll to the current time
