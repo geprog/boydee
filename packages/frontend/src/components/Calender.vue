@@ -63,7 +63,6 @@
               </div>
             </div>
           </template>
-          &nbsp;
         </v-calendar>
       </v-sheet>
     </v-col>
