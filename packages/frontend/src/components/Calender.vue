@@ -76,7 +76,6 @@ export default {
   data: () => ({
     focus: '',
     type: '4day',
-    types: ['month', 'week', 'day', '4day'],
     typeToLabel: {
       month: 'Month',
       week: 'Week',
@@ -84,13 +83,6 @@ export default {
       '4day': '4 Days',
     },
     mode: 'stack',
-    weekday: [0, 1, 2, 3, 4, 5, 6],
-    weekdays: [
-      { text: 'Sun - Sat', value: [0, 1, 2, 3, 4, 5, 6] },
-      { text: 'Mon - Sun', value: [1, 2, 3, 4, 5, 6, 0] },
-      { text: 'Mon - Fri', value: [1, 2, 3, 4, 5] },
-      { text: 'Mon, Wed, Fri', value: [1, 3, 5] },
-    ],
     value: '',
     events: [],
     colors: ['red'],
