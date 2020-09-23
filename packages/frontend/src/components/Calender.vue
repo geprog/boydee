@@ -125,10 +125,6 @@ export default {
   },
   mounted() {
     const cal = this.$refs.calendar;
-<<<<<<< HEAD
-
-=======
->>>>>>> a3b49de51b7855ef85af95789612904d8e02de35
     this.isMounted = true;
 
     // scroll to the current time
