@@ -63,7 +63,6 @@
               </div>
             </div>
           </template>
-          &nbsp;
         </v-calendar>
       </v-sheet>
     </v-col>
@@ -126,10 +125,6 @@ export default {
   },
   mounted() {
     const cal = this.$refs.calendar;
-
-    window.Vuetify = Vuetify;
-    window.app = this;
-    window.cal = cal;
 
     this.isMounted = true;
 

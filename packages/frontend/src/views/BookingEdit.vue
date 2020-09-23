@@ -16,9 +16,9 @@ import { Component, Vue } from 'vue-property-decorator';
 import ActionBar from '@/components/ActionBar.vue';
 
 @Component
-export default class Modify extends Vue {
+export default class BookingEdit extends Vue {
   click() {
-    this.$router.push({ path: '/book-desk' });
+    this.$router.push({ name: 'bookDesk' });
   }
 }
 </script>

@@ -27,6 +27,5 @@
     "**/.yarn": true // TODO: remove when yarn dist is removed
   },
   "typescript.tsdk": "node_modules/typescript/lib",
-  "vetur.experimental.templateInterpolationService": true,
-  "compile-hero.disable-compile-files-on-did-save-code": true
+  "vetur.experimental.templateInterpolationService": true
 }

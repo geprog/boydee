@@ -16,5 +16,6 @@ export default class ActinBar extends Vue {}
 .action-bar {
   display: flex;
   justify-content: space-between;
+  margin-top: 30px;
 }
 </style>

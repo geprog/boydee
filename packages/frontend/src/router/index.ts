@@ -24,9 +24,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "BookDesk" */ '../views/BookDesk.vue'),
   },
   {
-    path: '/book-desk/modify',
-    name: 'modify',
-    component: () => import(/* webpackChunkName: "modify" */ '../views/Modify.vue'),
+    path: '/booking/edit',
+    name: 'booking-edit',
+    component: () => import(/* webpackChunkName: "BookingEdit" */ '../views/BookingEdit.vue'),
   },
   {
     path: '/about',
