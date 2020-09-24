@@ -1,11 +1,11 @@
 <template>
   <div class="app-bar white">
     <div class="app-bar-inner">
-      <v-btn text><v-icon>fa-bars</v-icon></v-btn>
+      <v-btn small text><v-icon small>fa-bars</v-icon></v-btn>
       <router-link :to="{ name: 'home' }">
         <img src="../assets/logo.png" class="logo" />
       </router-link>
-      <v-btn text @click="doLogout"><v-icon>fa-sign-out-alt</v-icon></v-btn>
+      <v-btn small text @click="doLogout"><v-icon small>fa-sign-out-alt</v-icon></v-btn>
     </div>
   </div>
 </template>
@@ -37,7 +37,6 @@ export default class AppBar extends Vue {
 .app-bar-inner {
   display: flex;
   width: 100%;
-  /* max-width: 410px; */
   margin: 0 auto;
   align-items: center;
   justify-content: space-around;

@@ -2,7 +2,7 @@
   <div class="login">
     <v-btn color="primary" class="login-btn" :href="loginUrl"
       ><span>{{ $t('login') }}</span
-      ><v-icon>fab fa-github-square</v-icon></v-btn
+      ><v-icon small>fab fa-github-square</v-icon></v-btn
     >
   </div>
 </template>

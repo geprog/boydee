@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    <v-btn color="primary" class="book-btn mb-5" min-width="300" :to="{ path: 'booking' }">{{
+      $t('book_any_desk')
+    }}</v-btn>
     <b-loading v-model="loading" is-full-page can-cancel />
     <template v-if="!loading">
       <div v-if="hasRooms" class="rooms">
@@ -10,6 +13,7 @@
         <v-btn color="primary" @click="$router.push({ name: 'new-room' })">{{ $t('new_room.create_new_room') }}</v-btn>
       </div>
     </template>
+    <v-btn color="primary" class="book-btn mt-5" min-width="300">{{ $t('your_bookings') }}</v-btn>
   </div>
 </template>
 
@@ -45,7 +49,7 @@ export default defineComponent({
 .home {
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .no-room-available {

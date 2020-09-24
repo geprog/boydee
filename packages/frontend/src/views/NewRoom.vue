@@ -4,8 +4,8 @@
       <p class="room-preview-title">{{ $t('new_room.upload_room_image') }}</p>
       <div class="room-preview-svg" v-html="svg" />
       <div class="room-preview-buttons">
-        <v-btn class="btn-reset-room" color="error" @click="resetRoom"><v-icon>fa-times</v-icon></v-btn>
-        <v-btn class="btn-save-room" color="primary" @click="saveRoom"><v-icon>fa-save</v-icon></v-btn>
+        <v-btn small class="btn-reset-room" color="error" @click="resetRoom"><v-icon>fa-times</v-icon></v-btn>
+        <v-btn small class="btn-save-room" color="primary" @click="saveRoom"><v-icon>fa-save</v-icon></v-btn>
       </div>
     </div>
     <b-field v-else>

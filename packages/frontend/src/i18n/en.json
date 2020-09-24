@@ -4,6 +4,8 @@
     "check_api": "check API",
     "api_result": "api result"
   },
+  "modify": "Modify",
+  "details": "Details",
   "login": "Login with Github",
   "user": {
     "firstname": "Firstname",
@@ -16,10 +18,23 @@
   "welcome_vue": "Welcome to Your Vue.js App",
   "about": "About",
   "about_text": "This is an about page",
+  "booking_desk": "Booking for any desk",
+  "show_free_desk": "Show free desk for",
+  "book_any_desk": "Book any desk",
+  "your_bookings": "Your bookings",
+  "hours": "hours",
   "new_room": {
     "upload_room_image": "Drop your room image (.svg) here or click to upload one",
     "your_new_room": "This will be your new room:",
     "no_rooms": "You currently have no rooms!",
     "create_new_room": "Create a new room"
+  },
+  "choose_a_desk_or": "Choose a desk or",
+  "any_desk": "any desk",
+  "calendar": {
+    "month": "Month",
+    "week": "Week",
+    "day": "Day",
+    "4day": "4 Days"
   }
 }
