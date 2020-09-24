@@ -29,18 +29,4 @@ export default class BookingEdit extends Vue {
   align-items: center;
   flex-direction: column;
 }
-
-.no-room-available {
-  display: flex;
-  flex-flow: column;
-  margin: auto;
-}
-
-.no-rooms-text {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.book-btn {
-}
 </style>
