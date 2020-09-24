@@ -8,8 +8,6 @@
 </template>
 
 <script lang="ts">
-import '@/css/common.css';
-
 import { Component, Vue } from 'vue-property-decorator';
 
 import AppBar from '@/components/AppBar.vue';
@@ -25,6 +23,10 @@ export default class App extends Vue {
 </script>
 
 <style>
+body {
+  background: var(--v-grey_fifth-base);
+}
+
 .app {
   display: flex;
   height: 100%;

@@ -1,5 +1,5 @@
 <template>
-  <div class="bookdesk">
+  <div class="booking">
     <div>
       <span class="mr-3">{{ $t('booking_desk') }}</span>
       <v-btn small color="primary" :to="{ path: '/booking/edit' }">{{ $t('modify') }}</v-btn>
@@ -13,7 +13,7 @@
     <div>
       <v-expansion-panels v-model="panel" tile flat>
         <v-expansion-panel class="text-left">
-          <v-expansion-panel-header disable-icon-rotate>Details</v-expansion-panel-header>
+          <v-expansion-panel-header disable-icon-rotate>{{ $t('details') }}</v-expansion-panel-header>
           <v-expansion-panel-content v-for="(item, index) in details" :key="index" left
             >{{ item }}
           </v-expansion-panel-content>
@@ -21,7 +21,7 @@
       </v-expansion-panels>
     </div>
 
-    <Calender />
+    <Calendar />
     <ActionBar />
   </div>
 </template>
@@ -29,12 +29,12 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 import ActionBar from '@/components/ActionBar.vue';
-import Calender from '@/components/Calender.vue';
+import Calendar from '@/components/Calendar.vue';
 
 @Component({
-  components: { Calender, ActionBar },
+  components: { Calendar, ActionBar },
 })
-export default class BookDesk extends Vue {
+export default class Booking extends Vue {
   get items(): number[] {
     var values = [];
     for (var i = 1; i < 25; i++) {
@@ -64,7 +64,7 @@ export default class BookDesk extends Vue {
   justify-content: center;
   margin-bottom: 20px;
 }
-.bookdesk {
+.booking {
   display: flex;
   flex-direction: column;
   max-width: 1050px;

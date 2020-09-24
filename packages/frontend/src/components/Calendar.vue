@@ -2,7 +2,7 @@
   <v-row class="fill-height">
     <v-col>
       <v-sheet height="60">
-        <v-toolbar flat color="white" class="calender-header">
+        <v-toolbar flat color="white" class="calendar-header">
           <v-btn small class="mr-3" @click="$refs.calendar.prev()">
             <v-icon small>fa-chevron-left</v-icon>
           </v-btn>
@@ -15,16 +15,16 @@
             </template>
             <v-list>
               <v-list-item @click="type = 'day'">
-                <v-list-item-title>Day</v-list-item-title>
+                <v-list-item-title>{{ $t('calendar.day') }}</v-list-item-title>
               </v-list-item>
               <v-list-item @click="type = 'week'">
-                <v-list-item-title>Week</v-list-item-title>
+                <v-list-item-title>{{ $t('calendar.week') }}</v-list-item-title>
               </v-list-item>
               <v-list-item @click="type = 'month'">
-                <v-list-item-title>Month</v-list-item-title>
+                <v-list-item-title>{{ $t('calendar.month') }}</v-list-item-title>
               </v-list-item>
               <v-list-item @click="type = '4day'">
-                <v-list-item-title>4 days</v-list-item-title>
+                <v-list-item-title>{{ $t('calendar.4day') }}</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>
@@ -73,30 +73,32 @@
 import Vuetify from 'vuetify/lib';
 
 export default {
-  data: () => ({
-    focus: '',
-    type: '4day',
-    typeToLabel: {
-      month: 'Month',
-      week: 'Week',
-      day: 'Day',
-      '4day': '4 Days',
-    },
-    mode: 'stack',
-    value: '',
-    events: [],
-    colors: ['red'],
-    names: [''],
+  data: function () {
+    return {
+      focus: '',
+      type: '4day',
+      typeToLabel: {
+        month: this.$t('calendar.month'),
+        week: this.$t('calendar.week'),
+        day: this.$t('calendar.day'),
+        '4day': this.$t('calendar.4day'),
+      },
+      mode: 'stack',
+      value: '',
+      events: [],
+      colors: ['red'],
+      names: [''],
 
-    dragEvent: null,
-    dragStart: null,
-    lastEvent: '',
-    createEvent: null,
-    createStart: null,
-    extendOriginal: null,
+      dragEvent: null,
+      dragStart: null,
+      lastEvent: '',
+      createEvent: null,
+      createStart: null,
+      extendOriginal: null,
 
-    isMounted: false,
-  }),
+      isMounted: false,
+    };
+  },
   computed: {
     nowY() {
       const cal = this.$refs.calendar;
@@ -287,9 +289,8 @@ export default {
   },
 };
 </script>
-
 <style scoped>
-.calender-header {
+.calendar-header {
   display: flex;
   justify-content: center;
 }

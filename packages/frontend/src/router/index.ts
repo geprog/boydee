@@ -19,14 +19,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "new-room" */ '../views/NewRoom.vue'),
   },
   {
-    path: '/book-desk',
-    name: 'bookDesk',
-    component: () => import(/* webpackChunkName: "BookDesk" */ '../views/BookDesk.vue'),
+    path: '/booking',
+    name: 'booking',
+    component: () => import(/* webpackChunkName: "booking" */ '../views/Booking.vue'),
   },
   {
     path: '/booking/edit',
     name: 'booking-edit',
-    component: () => import(/* webpackChunkName: "BookingEdit" */ '../views/BookingEdit.vue'),
+    component: () => import(/* webpackChunkName: "booking-edit" */ '../views/BookingEdit.vue'),
   },
   {
     path: '/about',

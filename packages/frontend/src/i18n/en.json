@@ -5,6 +5,7 @@
     "api_result": "api result"
   },
   "modify": "Modify",
+  "details": "Details",
   "login": "Login with Github",
   "user": {
     "firstname": "Firstname",
@@ -29,5 +30,11 @@
     "create_new_room": "Create a new room"
   },
   "choose_a_desk_or": "Choose a desk or",
-  "any_desk": "any desk"
+  "any_desk": "any desk",
+  "calendar": {
+    "month": "Month",
+    "week": "Week",
+    "day": "Day",
+    "4day": "4 Days"
+  }
 }

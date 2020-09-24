@@ -18,7 +18,7 @@ import ActionBar from '@/components/ActionBar.vue';
 @Component
 export default class BookingEdit extends Vue {
   click() {
-    this.$router.push({ name: 'bookDesk' });
+    this.$router.push({ name: 'booking' });
   }
 }
 </script>

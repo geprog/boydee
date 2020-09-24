@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <v-btn color="primary" class="book-btn mb-5" min-width="300" :to="{ path: 'book-desk' }">{{
+    <v-btn color="primary" class="book-btn mb-5" min-width="300" :to="{ path: 'booking' }">{{
       $t('book_any_desk')
     }}</v-btn>
     <b-loading v-model="loading" is-full-page can-cancel />
@@ -61,8 +61,5 @@ export default defineComponent({
 .no-rooms-text {
   font-size: 1.5rem;
   margin-bottom: 2rem;
-}
-
-.book-btn {
 }
 </style>
